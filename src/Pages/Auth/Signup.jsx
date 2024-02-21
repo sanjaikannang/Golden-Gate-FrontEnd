@@ -110,14 +110,18 @@ const Signup = () => {
               className="w-full p-2 mb-4 border "
             />
             <button
-              className={`w-full rounded-full border border-blue-900  font-medium  ${
+              className={`w-full rounded-full border border-blue-900 font-medium ${
                 loading ? "bg-gray-300" : "bg-white"
               } text-blue-900 py-2 relative`}
               onClick={handleSignup}
               disabled={loading}
             >
-              {loading && <img alt="" />}
-              {!loading ? "Register" : "Registering..."}
+              {loading && (
+                <div className="flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-7 w-7 border-t-2 border-b-2 border-blue-900 mr-2"></div>
+                </div>
+              )}
+              {!loading ? "Register" : ""}
             </button>
             {err && (
               <p color="error" sx={{ mt: 2 }}>
